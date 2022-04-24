@@ -1,3 +1,4 @@
+const DAO = require("../dao/DAO");
 const UserinfoService = require("../services/UserinfoService");
 /* 
 *   管理员登录
@@ -145,6 +146,34 @@ async function findAllManager (ctx, next) {
     }
 }
 
-module.exports = {
-    login,register,deleteManager,updateManager,findAllManager
+async function findoneManager (ctx, next) {
+
+    var obj = ctx.request.body;
+    let status, msg, data;
+
+    console.log(obj)
+
+    try {
+        data = await DAO.findOne("UserinfoModel",obj,function(err,data){
+            console.log("err"+err)
+            console.log(data)
+        });
+
+        data = data;
+        status = 200;
+    }
+    catch (err) {
+        msg = err;
+        status = 100;
+        console.log("查询错误:"+err);
+    };
+
+    ctx.body = {
+        data: data,
+        status: status,
+        msg: msg,
+    }
 }
+// module.exports = {
+//     login,register,deleteManager,updateManager,findAllManager,findoneManager
+// }

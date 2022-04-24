@@ -6,15 +6,18 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 条件
  * @returns	{[object]} [string]errmsg,[object]obj
  */
- module.exports.findOne = async function(conditions) {
-	 return new Promise ((resolve)=>{
-		daoModule.findOne("UserinfoModel",conditions,function (errmsg, obj) {
+module.exports.findOne = async function (condition) {
+	var conditions = {
+		where: condition
+	}
+	return new Promise((resolve) => {
+		daoModule.findOne("UserinfoModel", conditions, function (errmsg, obj) {
 			let data = new Object()
 			data = {
-				"errmsg":errmsg,
-				"obj":obj
+				"errmsg": errmsg,
+				"obj": obj
 			}
-            resolve(data);
+			resolve(data);
 		})
 	})
 }
@@ -25,13 +28,13 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 添加数据
  * @return  {[object]} data.errmsg,data.obj
  */
- module.exports.create = async function(conditions) {
-	return new Promise ((resolve)=>{
-		daoModule.create("UserinfoModel",conditions,function(errmsg,obj){
+module.exports.create = async function (conditions) {
+	return new Promise((resolve) => {
+		daoModule.create("UserinfoModel", conditions, function (errmsg, obj) {
 			let data = new Object();
 			data = {
-				"errmsg":errmsg,
-				"obj":obj
+				"errmsg": errmsg,
+				"obj": obj
 			}
 			resolve(data);
 		});
@@ -44,8 +47,8 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 添加数据
  * @param  {Function} cb         回调函数
  */
- module.exports.destroy = function(conditions,cb) {
-	daoModule.destroy("UserinfoModel",conditions,cb);
+module.exports.destroy = function (conditions, cb) {
+	daoModule.destroy("UserinfoModel", conditions, cb);
 }
 
 /**
@@ -54,8 +57,8 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 数据集
  * @param  {Function} cb         回调函数
  */
- module.exports.update = function(conditions,cb) {
-	daoModule.update("UserinfoModel",conditions,cb);
+module.exports.update = function (conditions, cb) {
+	daoModule.update("UserinfoModel", conditions, cb);
 }
 
 /**
@@ -64,8 +67,8 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 数据集
  * @param  {Function} cb         回调函数
  */
- module.exports.findAll = function(conditions,cb) {
-	daoModule.findAll("UserinfoModel",conditions,cb);
+module.exports.findAll = function (conditions, cb) {
+	daoModule.findAll("UserinfoModel", conditions, cb);
 }
 
 /**
@@ -74,8 +77,8 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 数据集
  * @param  {Function} cb         回调函数
  */
- module.exports.list = function(conditions,cb) {
-	daoModule.list("UserinfoModel",conditions,cb);
+module.exports.list = function (conditions, cb) {
+	daoModule.list("UserinfoModel", conditions, cb);
 }
 
 /**
@@ -84,6 +87,6 @@ var daoModule = require("./DAO");
  * @param  {[type]}   conditions 数据集
  * @param  {Function} cb         回调函数
  */
- module.exports.exists = function(conditions,cb) {
-	daoModule.exists("UserinfoModel",conditions,cb);
+module.exports.exists = function (conditions, cb) {
+	daoModule.exists("UserinfoModel", conditions, cb);
 }

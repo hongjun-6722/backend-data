@@ -9,7 +9,7 @@
     "dev": "nodemon --exec npm run start"
   },
   "_moduleAliases": {
-    "@main": "./"
+    "@main": "../"
   },
   "author": "",
   "license": "ISC",
@@ -20,14 +20,16 @@
     "koa-bodyparser": "^4.3.0",
     "koa-cors": "0.0.16",
     "koa-jwt": "^4.0.3",
+    "koa-log4": "^2.3.2",
     "koa-passport": "^4.1.4",
     "koa-router": "^9.1.0",
     "koa2": "^2.0.0-alpha.7",
     "module-alias": "^2.2.2",
-    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
     "passport-jwt": "^4.0.0",
     "require-directory": "^2.1.1",
-    "sequelize": "^3.24.1"
+    "sequelize": "^4.22.2",
+    "ws": "^8.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

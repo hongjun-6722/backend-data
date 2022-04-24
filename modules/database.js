@@ -1,4 +1,3 @@
-const { NULL } = require('mysql/lib/protocol/constants/types');
 const requireDirectory = require('require-directory')
 const Sequelize = require('sequelize');
 var config = require("../config/default").getconfig();
@@ -22,6 +21,7 @@ function initialize(app, callback) {
             idle: 30000
         },
         timestamps: false,
+        operatorsAliases: false
     });
 
     try {
@@ -41,7 +41,7 @@ function initialize(app, callback) {
 
     } catch (error) {
 
-        console.log('加载模型错误：'+err);
+        console.log('加载模型错误：'+error);
         callback(error);
         
     }

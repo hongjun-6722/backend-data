@@ -91,6 +91,7 @@ module.exports.findAllManager = function(obj) {
 			if(err){
 				reject(err);
 			} else {
+				// console.log(obj)
 				resolve(obj);
 			}
 		});
